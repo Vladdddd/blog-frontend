@@ -1,0 +1,136 @@
+$width-large: 1280px;
+$width-medium: 1024px;
+$width-small: 768px;
+$width-mobile: 425px;
+
+@mixin media-font($width, $font-size, $size-change: 0px) {
+  @media(max-width: $width) {
+    font-size: calc($font-size - $size-change);
+  }
+}
+
+.root {
+  min-height: 50vh;
+  padding: 5.5% 12.5% 8.5%;
+
+  background: var(--grey-background);
+  color: var(--color-text);
+
+  .title {
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-size: var(--font-size-title);
+    font-weight: 500;
+
+    @include media-font($width-large, var(--font-size-title), 4px);
+    @include media-font($width-medium, var(--font-size-title), 8px);
+    @include media-font($width-small, var(--font-size-title), 12px);
+  }
+
+  .list {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .comment_margin {
+      margin-left: 5%;
+    }
+
+    .comment {
+      width: 30%;
+      padding: 10px 20px;
+
+      background: white;
+      border-radius: var(--border-radius-primary);
+
+      .user {
+        display: flex;
+        justify-content: center;
+
+        margin-bottom: 30px;
+
+        .icon {
+          font-size: var(--font-size-title);
+
+          @include media-font($width-large, var(--font-size-title), 4px);
+          @include media-font($width-medium, var(--font-size-title), 8px);
+          @include media-font($width-small, var(--font-size-title), 12px);
+        }
+
+        .facebook {
+          color: var(--color-blue);
+        }
+
+        .user_info {
+          margin: 0 40px 0 10px;
+          h1 {
+            margin: 0;
+            font-size: var(--font-size-small);
+
+            @include media-font($width-large, var(--font-size-small), 2px);
+            @include media-font($width-medium, var(--font-size-small), 4px);
+            @include media-font($width-small, var(--font-size-small), 6px);
+          }
+
+          p {
+            margin: 0;
+            font-size: var(--font-size-small);
+
+            @include media-font($width-large, var(--font-size-small), 2px);
+            @include media-font($width-medium, var(--font-size-small), 4px);
+            @include media-font($width-small, var(--font-size-small), 6px);
+          }
+        }
+      }
+    }
+  }
+
+  .caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 6% 0 0%;
+    padding: 2% 2.5%;
+
+    background: var(--color-tertiary-background);
+    border-radius: var(--border-radius-primary);
+
+    h1 {
+      font-size: var(--font-size-title);
+      font-weight: 500;
+      color: white;
+
+      @include media-font($width-large, var(--font-size-title), 4px);
+      @include media-font($width-medium, var(--font-size-title), 8px);
+      @include media-font($width-small, var(--font-size-title), 12px);
+    }
+
+    .grammar_btn {
+      background: white;
+      
+
+      a {
+        color: var(--color-text);
+      }
+    }
+
+    .vocabulary_btn {
+      margin-left: 20px;
+      background: var(--color-primary);
+      
+
+      a {
+        color: white;
+      }
+    }
+
+    button {
+      padding: 8px 22px;
+      font-size: var(--font-size-small);
+
+      @include media-font($width-large, var(--font-size-small), 2px);
+      @include media-font($width-medium, var(--font-size-small), 4px);
+      @include media-font($width-small, var(--font-size-small), 6px);
+    }
+  }
+}

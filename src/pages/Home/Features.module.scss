@@ -1,0 +1,96 @@
+$width-large: 1280px;
+$width-medium: 1024px;
+$width-small: 768px;
+$width-mobile: 425px;
+
+@mixin media-font($width, $font-size, $size-change: 0px) {
+  @media(max-width: $width) {
+    font-size: calc($font-size - $size-change);
+  }
+}
+
+.root {
+  padding: 3% 12.5%;
+
+  background: white;
+  color: var(--color-text);
+
+  .title {
+    margin-top: 0;
+    font-size: var(--font-size-title);
+    font-weight: 500;
+
+    @include media-font($width-large, var(--font-size-title), 4px);
+    @include media-font($width-medium, var(--font-size-title), 8px);
+    @include media-font($width-small, var(--font-size-title), 12px);
+  }
+
+  .list {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+
+    ul {
+      width: 40%;
+      padding: 0;
+
+      li {
+        display: flex;
+        list-style: none;
+
+        .list_id {
+          font-size: var(--font-size-medium);
+
+          @media (max-width: $width-large) {
+            padding: 8px 30px;
+            font-size: calc(var(--font-size-medium) - 4px);
+          }
+      
+          @media (max-width: $width-medium) {
+            padding: 5px 25px;
+            font-size: calc(var(--font-size-medium) - 8px);
+          }
+      
+          @media (max-width: $width-small) {
+            padding: 5px 15px;
+            font-size: calc(var(--font-size-medium) - 12px);
+          }
+        }
+
+        .list_text {
+          margin-left: 20px;
+
+          h1 {
+            $font-size-list: calc(var(--font-size-medium) - 2px);
+            font-size: $font-size-list;
+            font-weight: 500;
+
+            @include media-font($width-large, $font-size-list, 2px);
+            @include media-font($width-medium, $font-size-list, 6px);
+            @include media-font($width-small, $font-size-list, 10px);
+          }
+
+          p {
+            $font-size-p: calc(var(--font-size-small) - 2px);
+            font-size: $font-size-p;
+
+            @include media-font($width-medium, $font-size-p, 4px);
+            @include media-font($width-small, $font-size-p, 6px);
+          }
+        }
+      }
+    }
+
+    .illustrations {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 55%;
+      height: 100%;
+
+      img {
+        width: 42.5%;
+      }
+    }
+  }
+}

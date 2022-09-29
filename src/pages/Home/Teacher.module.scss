@@ -1,0 +1,89 @@
+$width-large: 1280px;
+$width-medium: 1024px;
+$width-small: 768px;
+$width-mobile: 425px;
+
+@mixin media-font($width, $font-size, $size-change: 0px) {
+  @media(max-width: $width) {
+    font-size: calc($font-size - $size-change);
+  }
+}
+
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding: 7% 12.5%;
+
+  background: var(--color-tertiary-background);
+
+  .photo {
+    display: flex;
+    width: 42.5%;
+
+    background: white;
+    border-radius: 50%;
+
+    img {
+      width: 95%;
+      margin: 2.5%;
+      height: 95%;
+      border-radius: 50%;
+    }
+  }
+
+  .details {
+    width: 52.5%;
+
+    .caption {
+      margin: 0;
+      margin-bottom: 6.5%;
+      color: white;
+
+      h1 {
+        margin: 0;
+        font-size: var(--font-size-large);
+        font-weight: 500;
+
+        @include media-font($width-medium, var(--font-size-large), 3px);
+        @include media-font($width-small, var(--font-size-large), 6px);
+      }
+
+      h2 {
+        margin: 0;
+        font-size: var(--font-size-small);
+        font-weight: 400;
+
+        @include media-font($width-medium, var(--font-size-small), 2px);
+        @include media-font($width-small, var(--font-size-small), 4px);
+      }
+    }
+
+    .text {
+      position: relative;
+      height: 100%;
+
+      background: white;
+      color: var(--color-text);
+
+      border-radius: var(--border-radius-primary);
+
+      .tile {
+        position: absolute;
+        left: -28px;
+        top: 15%;
+        border-bottom: 28px solid white;
+        border-left: 28px solid transparent;
+      }
+
+      p {
+        padding: 10px 20px;
+        font-size: var(--font-size-small);
+
+        @include media-font($width-medium, var(--font-size-small), 2px);
+        @include media-font($width-small, var(--font-size-small), 4px);
+      }
+    }
+  }
+}
